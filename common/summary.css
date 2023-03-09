@@ -1,0 +1,188 @@
+*{box-sizing: border-box;}
+img{border:0;}
+
+html,body{
+	font-family: "Nanum Gothic", "나눔고딕";
+	font-weight:normal;
+	font-size:16px;
+	width:100%;
+	height:100%;
+	background:transparent;
+	color:#000;
+	word-break: keep-all;
+	padding:0;
+	margin:0;
+}
+body{
+	overflow: auto;
+}
+
+button{
+	cursor: pointer;
+	background: none;
+	border:none;
+	overflow:visible;
+}
+
+.main{
+	position: relative;
+	width:100%;
+	height: 100%;
+	background:#fff;
+	display: flex; 
+	flex-flow: column nowrap;
+	align-items: stretch;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px 0 10px;
+}
+
+section{
+	position: relative;
+	width: 100%;
+	flex: 1 1 0%;
+	top: 10px;
+	/* overflow: hidden; */
+}
+
+section div.page{
+	position: absolute;
+	width:100%;
+	height:100%;
+	left:0;
+	top:0px;
+    /* max-height:805px; */
+    overflow-x: hidden;
+	border:0;
+	padding: 40px 40px 2px 35px;
+	display: none;
+}
+
+.page[data-num="1"]{
+	display: block;
+}
+
+
+/*nav 버튼 설정*/
+@media all{
+	nav{
+		display: flex;
+		flex-flow: row wrap;
+		align-items: flex-end;
+		justify-content: center;
+		margin: 10px 0 2px;
+	}
+
+	nav>div{
+		text-align: center;
+		font-size: 0;
+		line-height: 0;
+		padding: 10px;
+	}
+
+	nav .page_num_container{
+		background-color:hsla(0, 0%, 63%, 0.5);
+		display: inline-block;
+		font-size: 24px;
+		font-weight: 600;
+		line-height: 1.4;
+		vertical-align: middle;
+		padding:0 30px;
+		min-width: 100px;
+		min-height: 28px;
+		border-radius: 30px;
+		margin: 0 10px;
+	}
+	nav .page_num_container .cur_page{
+	}
+
+	nav .page_num_container .total_page{
+		font-weight: 500;
+	}
+
+	nav .page_num_container span:not(class){
+		color:#000;
+	}
+
+	nav .page_num_container span:nth-child(2){
+		padding: 0 20px;
+		font-size:20px;
+		font-weight: normal;
+	}
+
+	nav div.page_btn{
+		/* background: #00000000; */
+	}
+	nav .page_btn button{
+		width: 13px;
+		height: 22px;
+		background: url(img/nav_btn.png) 0 0px no-repeat;
+		padding: 0;
+		vertical-align: middle;
+	}
+
+	nav .page_btn button.prev{
+		left: 2%;
+	}
+	nav .page_btn button.next{
+		transform:rotate(180deg);
+		right: 2%;
+	}
+
+	nav .page_btn button:hover{
+		background-position-y: -22px;
+	}
+}
+
+/*출력, 다운로드 버튼 설정*/
+@media all{
+	.btn_wrap{
+		position: absolute;
+		right: 4%;
+		top: 90px;
+		z-index: 1;
+	}
+	body.mob .btn_wrap {
+		display: none;
+	}
+
+	.btn_wrap button{
+		width: 43px;
+		height:43px;
+		background: url(img/btn.png) no-repeat 0 0;
+		margin: 0 3px;
+		padding: 0;
+	} 
+	
+	.btn_wrap button:hover{
+		background-position-y: -43px;
+	}
+	.btn_wrap button.print{
+		background-position-x:0;
+	}
+	.btn_wrap button.download{
+		background-position-x:-43px;
+	}
+
+	a{
+		display: inline-block;
+		width: 43px;
+		height:43px;
+	}
+}
+
+
+@media screen and (max-width:550px){
+	header div img{
+		max-height: 30px;
+	}
+	section div.page{
+		padding: 30px 40px 2px 35px;
+	}
+	.btn_wrap{
+		top: 55px;
+	}
+}
